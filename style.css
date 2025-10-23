@@ -1,0 +1,136 @@
+/* Typing indicator animation */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f6fa;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    width: 100%;
+    max-width: 420px;
+    height: 85vh;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
+.chat-header {
+    background-color: #003366;
+    color: white;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding: 15px;
+}
+
+.chat-box {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    background: #f9fafc;
+}
+
+.message {
+    max-width: 80%;
+    margin-bottom: 10px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    word-wrap: break-word;
+    line-height: 1.4;
+    font-size: 0.95rem;
+}
+
+.user {
+    align-self: flex-end;
+    background: #003366;
+    color: #fff;
+    border-bottom-right-radius: 0;
+}
+
+.bot {
+    align-self: flex-start;
+    background: #e8ecf3;
+    color: #222;
+    border-bottom-left-radius: 0;
+}
+
+.input-area {
+    display: flex;
+    padding: 10px;
+    background: #f1f2f6;
+    border-top: 1px solid #ccc;
+}
+
+.input-area input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    outline: none;
+}
+
+.input-area button {
+    background-color: #003366;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    margin-left: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+.input-area button:hover {
+    background-color: #00224d;
+}
+
+/* --- Responsive Layout --- */
+@media (max-width: 600px) {
+    .chat-container {
+        width: 95%;
+        height: 90vh;
+    }
+
+    .chat-header {
+        font-size: 1.1rem;
+        padding: 12px;
+    }
+
+    .message {
+        font-size: 0.9rem;
+    }
+
+    .input-area input, 
+    .input-area button {
+        font-size: 0.9rem;
+    }
+}
+
+
+@keyframes blink {
+  0% { opacity: 0.2; }
+  20% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+
+.message.temp {
+  color: #666;
+  font-style: italic;
+  opacity: 0.8;
+  animation: blink 1.4s infinite both;
+}
